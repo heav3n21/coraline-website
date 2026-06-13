@@ -1,0 +1,116 @@
+/* ============================================
+   CORALINE — WHIMSICAL STARRY NIGHT SYSTEM
+   Van Gogh × Laika × Golden Retriever
+   ============================================ */
+
+:root {
+  --void: #03020C;
+  --midnight: #060818;
+  --deep: #0D0822;
+  --deep2: #12083A;
+  --cobalt: #1a2b8a;
+  --blue1: #2847C8;
+  --blue2: #3A6ED8;
+  --sky: #5B9EF0;
+  --pale-sky: #8EC5FC;
+  --gold: #E8A030;
+  --gold-bright: #FFD060;
+  --gold-pale: #F5E090;
+  --rose: #C4506A;
+  --rose-bright: #E06080;
+  --lavender: #C0A0E0;
+  --violet: #8050C0;
+  --moonlight: #EAE0D5;
+  --parchment: #D4C8B8;
+  --cream: #F5F0E8;
+  --green-accent: #80C828;
+  --shadow: rgba(3, 2, 12, 0.85);
+
+  --font-display: 'IM Fell English', Georgia, serif;
+  --font-body: 'Special Elite', 'Courier New', monospace;
+  --font-hand: 'Caveat', cursive;
+  --font-title: 'Cinzel', serif;   /* THE font */
+
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-gentle: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--midnight);
+  color: var(--moonlight);
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--void);
+}
+
+img { max-width: 100%; height: auto; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+a { color: inherit; text-decoration: none; }
+
+/* h1/h2/h3 now use Cinzel — the title card font */
+h1, h2, h3 {
+  font-family: var(--font-title);
+  line-height: 1.2;
+  color: var(--moonlight);
+  font-weight: 400;
+}
+h1 { font-size: clamp(2rem, 6vw, 3.8rem); }
+h2 { font-size: clamp(1.5rem, 4vw, 2.4rem); letter-spacing: 0.04em; }
+h3 { font-size: clamp(1rem, 3vw, 1.4rem); letter-spacing: 0.03em; }
+
+p {
+  font-family: var(--font-body);
+  font-size: clamp(0.88rem, 2.5vw, 0.98rem);
+  color: var(--parchment);
+  line-height: 1.88;
+}
+
+.hand { font-family: var(--font-hand) !important; }
+.title-font { font-family: var(--font-title) !important; }
+.display-font { font-family: var(--font-display) !important; }
+
+.container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+.container--wide { max-width: 960px; }
+
+/* Fade-up scroll utility */
+.fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease-gentle), transform 0.7s var(--ease-gentle);
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0;
+  margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .fade-up, .hero-animate { opacity: 1 !important; transform: none !important; }
+}

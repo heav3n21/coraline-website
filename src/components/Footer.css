@@ -1,0 +1,96 @@
+.site-footer {
+  padding: 4rem 1.5rem 2.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid rgba(180,150,255,0.07);
+}
+
+/* Button eye row */
+.footer-constellation {
+  display: flex;
+  justify-content: center;
+  gap: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+.f-eye {
+  width: 18px; height: 18px;
+  background: var(--void);
+  border-radius: 50%;
+  border: 2px solid rgba(200,180,240,0.3);
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 7px rgba(180,150,240,0.3);
+  animation: fEyeBlink 5s ease-in-out infinite;
+}
+@keyframes fEyeBlink {
+  0%,87%,100%{transform:scaleY(1)}93%{transform:scaleY(.05)}
+}
+.f-eye-p {
+  width: 6px; height: 6px;
+  background: rgba(200,180,240,0.42);
+  border-radius: 50%;
+}
+.f-eye-s {
+  width: 2px; height: 2px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  position: absolute;
+  top: 2.5px; left: 3.5px;
+}
+
+/* Big Cinzel name — the star of the footer */
+.footer-name {
+  font-family: var(--font-title);
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--moonlight);
+  text-shadow:
+    0 0 30px rgba(180,150,255,0.35),
+    0 0 70px rgba(140,100,220,0.15),
+    0 0 120px rgba(100,70,180,0.08);
+  margin-bottom: 0.5rem;
+}
+
+.footer-tagline {
+  font-size: 0.8rem;
+  color: rgba(195,180,215,0.38);
+  letter-spacing: 0.08em;
+  margin-bottom: 0;
+}
+
+.footer-rule {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 200px;
+  margin: 1.4rem auto;
+}
+.footer-rule span:first-child,
+.footer-rule span:last-child {
+  flex: 1;
+  height: 1px;
+  background: rgba(180,150,255,0.14);
+}
+.footer-rule-symbol {
+  font-size: 0.75rem;
+  color: rgba(255,210,60,0.3);
+}
+
+.footer-copy {
+  font-size: 0.82rem;
+  color: rgba(200,185,215,0.32);
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+.footer-legal {
+  font-size: 0.7rem;
+  color: rgba(190,175,210,0.2);
+}
+.footer-legal a {
+  color: rgba(180,150,255,0.35);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.footer-legal a:hover { color: rgba(180,150,255,0.65); }
