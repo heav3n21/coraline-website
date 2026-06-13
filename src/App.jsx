@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import VanGoghCanvas from './components/VanGoghCanvas'
-import Fireflies from './components/Fireflies'
+import StarField from './components/StarField'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import TreatCounter from './components/TreatCounter'
@@ -19,10 +18,7 @@ export default function App() {
 
   return (
     <div className="app">
-      {/* Living Van Gogh background */}
-      <VanGoghCanvas />
-      {/* Whimsical fireflies */}
-      <Fireflies />
+      <StarField />
 
       <div className="content">
         <Header />
@@ -32,18 +28,16 @@ export default function App() {
           <Gallery />
           <About />
 
+          {/* Final CTA */}
           <section className="final-cta">
             <div className="container">
-              <div className="fcta-stars" aria-hidden="true">
-                {['✦','✿','☽','✦','⊙'].map((s,i) => (
-                  <span key={i} className="fcta-star" style={{ animationDelay: `${i*0.4}s` }}>{s}</span>
-                ))}
-              </div>
-              <h2 className="fcta-title">She's Still Waiting.</h2>
-              <p className="fcta-sub hand">one click · one treat · one very happy spin</p>
+              <p className="fcta-pre hand">she's still waiting.</p>
+              <h2 className="fcta-title">One treat. One dollar.<br/>One very happy spin.</h2>
               <button className="fcta-btn" onClick={open}>
-                <EyeDeco />
-                <span className="title-font">Buy The Treat</span>
+                <span className="fcta-eye" aria-hidden="true">
+                  <span className="fcta-eye-p"/>
+                </span>
+                <span>Buy the Treat</span>
                 <span className="hand fcta-price">$1</span>
               </button>
             </div>
@@ -56,16 +50,5 @@ export default function App() {
       <FloatingDonate onDonate={open} />
       <AudioPlayer />
     </div>
-  )
-}
-
-function EyeDeco() {
-  return (
-    <span className="fcta-eye" aria-hidden="true">
-      <span className="fcta-eye-p"/>
-      <span className="fcta-eye-s"/>
-      <span className="fcta-eye-th fcta-eye-th--t"/>
-      <span className="fcta-eye-th fcta-eye-th--b"/>
-    </span>
   )
 }

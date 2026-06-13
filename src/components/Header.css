@@ -1,5 +1,5 @@
 .site-header {
-  padding: 2rem 0 1rem;
+  padding: 2.5rem 0 1.5rem;
   text-align: center;
   position: relative;
   z-index: 10;
@@ -9,80 +9,67 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1.1rem;
-  margin-bottom: 0.65rem;
+  gap: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 
-/* Cinzel title — gorgeous */
 .header-title {
-  font-family: var(--font-title);
-  font-size: clamp(0.85rem, 2.8vw, 1.35rem);
-  font-weight: 600;
-  letter-spacing: 0.22em;
+  font-size: clamp(1.1rem, 3.5vw, 1.6rem);
+  font-weight: 400;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--moonlight);
-  text-shadow:
-    0 0 20px rgba(180,150,255,0.45),
-    0 0 50px rgba(140,100,220,0.18);
+  font-family: var(--font-title);
+  text-shadow: 0 0 30px rgba(91, 158, 240, 0.4), 0 0 60px rgba(58, 123, 213, 0.15);
 }
 
-.header-divider {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  max-width: 320px;
-  margin: 0 auto;
-}
-.header-divider span:first-child,
-.header-divider span:last-child {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(180,150,255,0.2), transparent);
-}
-.header-divider-text {
-  font-size: 0.78rem;
-  color: rgba(190,170,220,0.38);
+.header-sub {
+  font-size: 0.95rem;
+  color: rgba(212, 200, 184, 0.55);
+  letter-spacing: 0.04em;
   font-style: italic;
-  white-space: nowrap;
-  letter-spacing: 0.05em;
 }
 
-/* Button eye component */
-.btn-eye {
+/* Button eye decoration */
+.btn-eye-deco {
   position: relative;
-  width: 26px; height: 26px;
+  width: 28px;
+  height: 28px;
   flex-shrink: 0;
 }
-.btn-eye-disk {
-  width: 20px; height: 20px;
+.btn-eye-outer {
+  width: 22px;
+  height: 22px;
   background: var(--void);
   border-radius: 50%;
-  border: 2px solid rgba(200, 180, 240, 0.65);
+  border: 2.5px solid rgba(212, 200, 184, 0.7);
   position: absolute;
-  top: 3px; left: 3px;
-  box-shadow:
-    0 0 8px rgba(180, 150, 240, 0.5),
-    0 0 20px rgba(150, 100, 220, 0.2);
+  top: 3px;
+  left: 3px;
+  box-shadow: 0 0 8px rgba(91, 158, 240, 0.5), 0 0 20px rgba(58, 123, 213, 0.2);
 }
-.btn-eye-pupil {
-  width: 7px; height: 7px;
-  background: rgba(200,180,240,0.58);
+.btn-eye-inner {
+  width: 8px; height: 8px;
+  background: rgba(212, 200, 184, 0.6);
   border-radius: 50%;
   position: absolute;
-  top:50%;left:50%;
-  transform:translate(-50%,-50%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
 }
 .btn-eye-shine {
-  width: 2.5px;height:2.5px;
-  background:white;border-radius:50%;
-  position:absolute;top:2.5px;left:3px;
-}
-.btn-eye-stitch {
+  width: 3px; height: 3px;
+  background: white;
+  border-radius: 50%;
   position: absolute;
-  left: 50%; width: 1px;
-  height: 3px;
-  background: rgba(200,180,240,0.3);
+  top: 3px; left: 4px;
+}
+.btn-eye-thread {
+  position: absolute;
+  left: 50%;
+  width: 1px;
+  height: 4px;
+  background: rgba(212, 200, 184, 0.35);
   transform: translateX(-50%);
 }
-.btn-eye-stitch--t { top: 0; }
-.btn-eye-stitch--b { bottom: 0; }
+.btn-eye-thread--top { top: 0; }
+.btn-eye-thread--bottom { bottom: 0; }

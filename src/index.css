@@ -1,48 +1,55 @@
 /* ============================================
-   CORALINE — WHIMSICAL STARRY NIGHT SYSTEM
-   Van Gogh × Laika × Golden Retriever
+   CORALINE — DARK STORYBOOK DESIGN SYSTEM
+   Inspired by Laika's 2009 film aesthetic
    ============================================ */
 
 :root {
-  --void: #03020C;
-  --midnight: #060818;
-  --deep: #0D0822;
-  --deep2: #12083A;
-  --cobalt: #1a2b8a;
-  --blue1: #2847C8;
-  --blue2: #3A6ED8;
-  --sky: #5B9EF0;
-  --pale-sky: #8EC5FC;
-  --gold: #E8A030;
-  --gold-bright: #FFD060;
-  --gold-pale: #F5E090;
-  --rose: #C4506A;
-  --rose-bright: #E06080;
-  --lavender: #C0A0E0;
-  --violet: #8050C0;
+  /* Palette — Coraline movie palette */
+  --void: #04040E;
+  --midnight: #0A0A1A;
+  --deep-purple: #12082A;
+  --purple-mist: #1E1040;
+  --button-blue: #3A7BD5;
+  --electric-blue: #5B9EF0;
+  --pale-blue: #8EC5FC;
+  --dusty-rose: #C4506A;
+  --bright-rose: #E06080;
   --moonlight: #EAE0D5;
   --parchment: #D4C8B8;
-  --cream: #F5F0E8;
-  --green-accent: #80C828;
-  --shadow: rgba(3, 2, 12, 0.85);
+  --ghost-white: #F0EBE3;
+  --acid-green: #98D020;       /* Coraline's costume / nature */
+  --sage-green: #6AAF50;
+  --amber: #E8A030;
+  --ink: #0A0A1A;
 
-  --font-display: 'IM Fell English', Georgia, serif;
+  /* Typography */
+  --font-display: 'IM Fell English', 'Palatino Linotype', serif;
   --font-body: 'Special Elite', 'Courier New', monospace;
   --font-hand: 'Caveat', cursive;
-  --font-title: 'Cinzel', serif;   /* THE font */
+  --font-title: 'Cinzel', serif;
 
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --ease-gentle: cubic-bezier(0.4, 0, 0.2, 1);
+  /* Glow effects */
+  --glow-blue: 0 0 20px rgba(91, 158, 240, 0.4), 0 0 60px rgba(58, 123, 213, 0.15);
+  --glow-rose: 0 0 16px rgba(196, 80, 106, 0.5);
+  --glow-green: 0 0 16px rgba(152, 208, 32, 0.4);
 
+  /* Spacing */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
   --space-lg: 1.5rem;
   --space-xl: 2.5rem;
   --space-2xl: 4rem;
+
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-gentle: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 html {
   font-size: 16px;
@@ -57,34 +64,34 @@ body {
   line-height: 1.7;
   min-height: 100vh;
   overflow-x: hidden;
-  background: var(--void);
+  /* Deep space background */
+  background-image: radial-gradient(ellipse at 20% 50%, rgba(30, 16, 64, 0.8) 0%, transparent 60%),
+                    radial-gradient(ellipse at 80% 20%, rgba(10, 10, 26, 0.9) 0%, transparent 50%);
 }
 
 img { max-width: 100%; height: auto; display: block; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; }
 a { color: inherit; text-decoration: none; }
 
-/* h1/h2/h3 now use Cinzel — the title card font */
 h1, h2, h3 {
-  font-family: var(--font-title);
-  line-height: 1.2;
+  font-family: var(--font-display);
+  line-height: 1.15;
   color: var(--moonlight);
-  font-weight: 400;
 }
+
 h1 { font-size: clamp(2rem, 6vw, 3.8rem); }
-h2 { font-size: clamp(1.5rem, 4vw, 2.4rem); letter-spacing: 0.04em; }
-h3 { font-size: clamp(1rem, 3vw, 1.4rem); letter-spacing: 0.03em; }
+h2 { font-size: clamp(1.5rem, 4vw, 2.4rem); }
+h3 { font-size: clamp(1rem, 3vw, 1.4rem); }
 
 p {
   font-family: var(--font-body);
-  font-size: clamp(0.88rem, 2.5vw, 0.98rem);
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
   color: var(--parchment);
-  line-height: 1.88;
+  line-height: 1.85;
 }
 
-.hand { font-family: var(--font-hand) !important; }
-.title-font { font-family: var(--font-title) !important; }
-.display-font { font-family: var(--font-display) !important; }
+.hand { font-family: var(--font-hand); }
+.title-font { font-family: var(--font-title); }
 
 .container {
   width: 100%;
@@ -94,7 +101,26 @@ p {
 }
 .container--wide { max-width: 960px; }
 
-/* Fade-up scroll utility */
+/* Stars background */
+.stars-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle var(--dur, 3s) ease-in-out infinite var(--delay, 0s);
+}
+@keyframes twinkle {
+  0%, 100% { opacity: var(--min-op, 0.2); transform: scale(1); }
+  50% { opacity: var(--max-op, 0.8); transform: scale(1.3); }
+}
+
+/* Scroll fade */
 .fade-up {
   opacity: 0;
   transform: translateY(28px);
@@ -107,10 +133,30 @@ p {
   margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
 
+/* Button eyes decoration */
+.button-eye {
+  width: 18px; height: 18px;
+  background: var(--void);
+  border-radius: 50%;
+  border: 3px solid var(--moonlight);
+  position: relative;
+  display: inline-block;
+  box-shadow: var(--glow-blue);
+}
+.button-eye::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 7px; height: 7px;
+  background: var(--moonlight);
+  border-radius: 50%;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
-  .fade-up, .hero-animate { opacity: 1 !important; transform: none !important; }
+  .fade-up { opacity: 1; transform: none; }
 }

@@ -7,14 +7,14 @@ export default function Header() {
       <div className="container">
         <div className="header-inner">
           <ButtonEye />
-          <h1 className="header-title">
-            Buy Coraline a Treat
+          <h1 className="header-title title-font">
+            buy coraline a treat
           </h1>
           <ButtonEye />
         </div>
-        <div className="header-divider" aria-hidden="true">
-          <span/><span className="header-divider-text hand">for the goodest girl</span><span/>
-        </div>
+        <p className="header-sub hand">
+          every treat is a tiny portal to joy
+        </p>
       </div>
     </header>
   )
@@ -22,13 +22,13 @@ export default function Header() {
 
 function ButtonEye() {
   return (
-    <div className="btn-eye" aria-hidden="true">
-      <div className="btn-eye-disk">
-        <div className="btn-eye-pupil" />
+    <div className="btn-eye-deco" aria-hidden="true">
+      <div className="btn-eye-outer">
+        <div className="btn-eye-inner" />
         <div className="btn-eye-shine" />
       </div>
-      <div className="btn-eye-stitch btn-eye-stitch--t" />
-      <div className="btn-eye-stitch btn-eye-stitch--b" />
+      <div className="btn-eye-thread btn-eye-thread--top" />
+      <div className="btn-eye-thread btn-eye-thread--bottom" />
     </div>
   )
 }

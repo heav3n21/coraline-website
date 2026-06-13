@@ -5,29 +5,30 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="container">
-        <div className="footer-constellation" aria-hidden="true">
-          {[...Array(5)].map((_,i) => (
-            <div key={i} className="f-eye" style={{ animationDelay:`${i*0.28}s` }}>
-              <div className="f-eye-p"/><div className="f-eye-s"/>
+        <div className="footer-eyes" aria-hidden="true">
+          {[0,1,2,3,4].map(i => (
+            <div key={i} className="footer-eye" style={{ animationDelay: `${i*0.25}s` }}>
+              <div className="footer-eye-p"/>
+              <div className="footer-eye-shine"/>
             </div>
           ))}
         </div>
 
         <h2 className="footer-name">Coraline</h2>
-        <p className="footer-tagline hand">
-          golden retriever · very good girl · treat enthusiast
-        </p>
+        <p className="footer-role hand">golden retriever · very good girl · treat enthusiast</p>
 
         <div className="footer-rule" aria-hidden="true">
-          <span/><span className="hand footer-rule-symbol">✦</span><span/>
+          <span/><span className="hand">✦</span><span/>
         </div>
 
         <p className="footer-copy">
-          Made with golden light and a little bit of magic<br />
-          for the world's most deserving dog.
+          Made with care for the world's best dog.<br/>
+          Every treat confirmed, every spin verified.
         </p>
+
         <p className="footer-legal">
-          © {new Date().getFullYear()} Buy Coraline a Treat ·{' '}
+          © {new Date().getFullYear()} Buy Coraline a Treat
+          {' · '}
           <a href="https://stripe.com" target="_blank" rel="noopener noreferrer">Stripe</a>
         </p>
       </div>
