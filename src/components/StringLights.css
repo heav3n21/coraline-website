@@ -1,0 +1,45 @@
+.string-lights {
+  position: relative;
+  width: 100%;
+  height: 32px;
+  z-index: 20;
+}
+
+.string-wire {
+  position: absolute;
+  top: 4px;
+  left: 0; right: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, rgba(160,120,20,.5) 10%, rgba(160,120,20,.5) 90%, transparent);
+}
+
+.bulb {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: bulbFlicker 3s ease-in-out infinite;
+}
+
+.bulb-stem {
+  width: 2px;
+  height: 8px;
+  background: rgba(160,120,20,.5);
+}
+
+.bulb-globe {
+  width: 10px;
+  height: 14px;
+  border-radius: 50% 50% 45% 45%;
+  box-shadow: 0 0 8px var(--color), 0 0 20px var(--color), 0 0 35px var(--color);
+  opacity: .9;
+}
+
+@keyframes bulbFlicker {
+  0%, 90%, 100% { opacity: 1; }
+  92%            { opacity: .6; }
+  95%            { opacity: .95; }
+  97%            { opacity: .5; }
+}

@@ -1,0 +1,10 @@
+.bunting {
+  width: 100%;
+  position: relative;
+  z-index: 19;
+  margin-top: -2px;
+}
+.bunting-svg {
+  display: block;
+  height: 36px;
+}

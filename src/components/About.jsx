@@ -2,71 +2,51 @@ import React, { useRef, useEffect } from 'react'
 import './About.css'
 
 const FACTS = [
-  { icon: '🎾', title: 'Ball Counter', desc: '14 tennis balls. She tracks every single one.' },
-  { icon: '🛋️', title: 'Sleep Research', desc: '12.4 hrs daily avg. Studying the art since forever.' },
-  { icon: '🍂', title: 'Leaf Destruction', desc: 'Full-speed only. No exceptions.' },
-  { icon: '🧦', title: 'Gift Delivery', desc: 'Always brings a sock when you come home. Always.' },
+  { icon: '🎾', title: 'Ball Counter',   body: '14 tennis balls. She knows if one is missing.' },
+  { icon: '🛋️', title: 'Sleep Research', body: '12 hours daily. A deeply committed practice.' },
+  { icon: '🍂', title: 'Leaf Chaos',     body: 'Full-speed through every pile. Always.' },
+  { icon: '🧦', title: 'Gift Giver',     body: 'Brings a sock every time you come home.' },
 ]
-
-function FCard({ f, i }) {
-  const ref = useRef(null)
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) setTimeout(() => el.classList.add('visible'), i * 90) },
-      { threshold: 0.2 }
-    )
-    obs.observe(el)
-    return () => obs.disconnect()
-  }, [i])
-
-  return (
-    <div className="abt-fcard fade-up" ref={ref}>
-      <span className="abt-ficon">{f.icon}</span>
-      <h3 className="abt-ftitle">{f.title}</h3>
-      <p className="abt-fdesc">{f.desc}</p>
-    </div>
-  )
-}
 
 export default function About() {
   const ref = useRef(null)
   useEffect(() => {
     const el = ref.current
     if (!el) return
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) el.classList.add('visible') },
-      { threshold: 0.08 }
-    )
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        el.querySelectorAll('.abt-card').forEach((c, i) =>
+          setTimeout(() => c.classList.add('in'), i * 90)
+        )
+      }
+    }, { threshold: 0.1 })
     obs.observe(el)
     return () => obs.disconnect()
   }, [])
 
   return (
-    <section className="about fade-up" ref={ref}>
+    <section className="about" ref={ref}>
       <div className="container">
-        <div className="abt-header">
-          <span className="abt-eye-cluster" aria-hidden="true">
-            {'⊙⊙⊙'.split('').map((c, i) => <span key={i}>{c}</span>)}
-          </span>
-          <h2>The Official Dossier</h2>
-          <p className="abt-sub hand">classified: very good girl</p>
+        <div className="section-rule">
+          <span className="rule-line"/>
+          <span className="rule-text hand">official dossier</span>
+          <span className="rule-line"/>
         </div>
-
+        <h2 className="abt-heading">A Very Good Girl</h2>
         <div className="abt-grid">
-          {FACTS.map((f, i) => <FCard key={i} f={f} i={i} />)}
+          {FACTS.map((f, i) => (
+            <div key={i} className="abt-card reveal">
+              <span className="abt-icon">{f.icon}</span>
+              <h3 className="abt-title">{f.title}</h3>
+              <p className="abt-body">{f.body}</p>
+            </div>
+          ))}
         </div>
-
-        <div className="abt-quote">
-          <div className="abt-quote-mark hand">"</div>
-          <p>
-            She never asks for much. Just a walk, a long nap, a sunny patch,
-            and maybe — <em>just maybe</em> — one more treat.
-          </p>
-          <div className="abt-quote-mark hand abt-quote-mark--close">"</div>
-          <div className="abt-paws hand">🐾 🐾 🐾</div>
-        </div>
+        <blockquote className="abt-quote reveal">
+          <p>She never asks for much. Just a walk, a sunny patch, and maybe —
+            <em> just maybe</em> — one more treat.</p>
+          <footer className="hand">— her person 🐾</footer>
+        </blockquote>
       </div>
     </section>
   )

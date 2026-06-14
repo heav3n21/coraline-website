@@ -1,61 +1,18 @@
 .site-footer {
+  position: relative; z-index: 10;
   padding: 3.5rem 1.5rem 2.5rem;
   text-align: center;
-  position: relative;
-  z-index: 10;
-  border-top: 1px solid rgba(91, 158, 240, 0.08);
-  background: linear-gradient(0deg, rgba(4,4,14,0.8) 0%, transparent 100%);
+  border-top: 3px solid var(--gold);
+  background: rgba(15,4,0,.6);
+  backdrop-filter: blur(8px);
 }
-
-.footer-eyes {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-.footer-eye {
-  width: 20px; height: 20px;
-  background: var(--void);
-  border-radius: 50%;
-  border: 2px solid rgba(212,200,184,0.3);
-  display: flex; align-items: center; justify-content: center;
-  position: relative;
-  box-shadow: 0 0 8px rgba(91,158,240,0.3);
-  animation: footerEyeBlink 5s ease-in-out infinite;
-}
-@keyframes footerEyeBlink {
-  0%,88%,100%{transform:scaleY(1)}
-  93%{transform:scaleY(0.05)}
-}
-.footer-eye-p { width: 7px; height: 7px; background: rgba(212,200,184,0.45); border-radius: 50%; }
-.footer-eye-shine { width: 3px; height: 3px; background: rgba(255,255,255,0.5); border-radius:50%; position:absolute; top:3px; left:4px; }
-
-.footer-name {
-  font-size: 2.8rem;
-  font-style: italic;
-  font-weight: 400;
-  color: var(--moonlight);
-  text-shadow: 0 0 30px rgba(91,158,240,0.3);
-  margin-bottom: 0.4rem;
-}
-.footer-role { font-size: 0.82rem; color: rgba(212,200,184,0.35); letter-spacing: 0.06em; }
-
-.footer-rule {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  max-width: 240px;
-  margin: 1.5rem auto;
-}
-.footer-rule span:first-child,
-.footer-rule span:last-child {
-  flex: 1;
-  height: 1px;
-  background: rgba(91,158,240,0.15);
-}
-.footer-rule .hand { font-size: 0.8rem; color: rgba(91,158,240,0.3); }
-
-.footer-copy { font-size: 0.85rem; color: rgba(212,200,184,0.35); line-height: 1.7; margin-bottom: 1rem; }
-.footer-legal { font-size: 0.72rem; color: rgba(212,200,184,0.2); }
-.footer-legal a { color: rgba(91,158,240,0.4); text-decoration: underline; }
-.footer-legal a:hover { color: rgba(91,158,240,0.7); }
+.footer-mice { font-size: 1.2rem; margin-bottom: 1rem; letter-spacing: .5em; }
+.footer-name { font-family: 'Caveat', cursive; font-size: clamp(2.8rem,8vw,4.5rem); font-weight: 700; color: #f0e2bc; text-shadow: 2px 3px 0 rgba(139,16,16,.4); margin-bottom: .4rem; }
+.footer-role { font-family: 'Caveat', cursive; font-size: .8rem; color: rgba(240,226,188,.38); letter-spacing: .1em; }
+.footer-rule { display: flex; align-items: center; gap: 1rem; max-width: 160px; margin: 1.2rem auto; }
+.footer-rule .rule-line { flex: 1; height: 1px; background: rgba(200,146,42,.25); }
+.footer-dot { font-size: .9rem; color: rgba(200,146,42,.35); }
+.footer-copy { font-family: 'IM Fell English', serif; font-style: italic; font-size: .8rem; color: rgba(240,226,188,.3); line-height: 1.7; margin-bottom: .65rem; }
+.footer-legal { font-size: .68rem; color: rgba(240,226,188,.18); }
+.footer-legal a { color: rgba(200,146,42,.38); text-decoration: underline; transition: color .2s; }
+.footer-legal a:hover { color: rgba(200,146,42,.7); }

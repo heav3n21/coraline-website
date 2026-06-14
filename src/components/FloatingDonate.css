@@ -1,56 +1,20 @@
-.float-donate {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 200;
-  opacity: 0;
-  transform: translateY(16px) scale(0.9);
-  transition: opacity 0.3s ease, transform 0.35s var(--ease-spring);
+.float-wrap {
+  position: fixed; bottom: 26px; right: 26px; z-index: 100;
+  opacity: 0; transform: translateY(12px) scale(.94);
+  transition: opacity .3s, transform .35s cubic-bezier(.34,1.56,.64,1);
   pointer-events: none;
 }
-.float-donate.visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  pointer-events: all;
-}
-
+.float-wrap.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: all; }
 .float-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(12, 8, 26, 0.95);
-  color: var(--moonlight);
-  border: 1px solid rgba(91, 158, 240, 0.4);
-  border-radius: 100px;
-  padding: 0.65rem 1.1rem;
+  display: flex; align-items: center; gap: .5rem;
+  font-family: 'Cinzel', serif; font-size: .72rem; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: #1a0808;
+  background: linear-gradient(135deg, #c8922a, #f0c040);
+  padding: .65rem 1.2rem; border: 2px solid #8b6010; border-radius: 1px;
   cursor: pointer;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4), 0 0 20px rgba(91,158,240,0.12);
-  transition: transform 0.25s var(--ease-spring), border-color 0.2s, box-shadow 0.25s;
+  box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  transition: transform .22s cubic-bezier(.34,1.56,.64,1), box-shadow .22s;
 }
-.float-btn:hover {
-  border-color: rgba(91, 158, 240, 0.75);
-  box-shadow: 0 6px 30px rgba(0,0,0,0.5), 0 0 30px rgba(91,158,240,0.25);
-  transform: translateY(-3px) scale(1.03);
-}
-
-.float-eye {
-  width: 18px; height: 18px;
-  background: var(--void);
-  border-radius: 50%;
-  border: 2px solid rgba(212,200,184,0.55);
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 0 6px rgba(91,158,240,0.5);
-  flex-shrink: 0;
-  animation: eyeFloat 2.5s ease-in-out infinite;
-}
-@keyframes eyeFloat {
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.1)}
-}
-.float-eye-p { width: 6px; height: 6px; background: rgba(212,200,184,0.6); border-radius: 50%; }
-.float-label { font-size: 0.9rem; font-weight: 600; color: var(--pale-blue); }
-
-@media (max-width: 480px) {
-  .float-donate { bottom: 16px; right: 16px; }
-}
+.float-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(0,0,0,.5); }
+.float-icon { font-size: .88rem; }
