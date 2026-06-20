@@ -1,7 +1,7 @@
 .app { min-height: 100vh; position: relative; }
 .site-content { position: relative; z-index: 5; }
 
-/* Ticket button — shared across Hero and FinalCTA */
+/* Ticket button — shared by FinalCTA (and reused for any future CTA) */
 .ticket-btn {
   position: relative;
   display: inline-flex;
@@ -10,7 +10,7 @@
   background: linear-gradient(135deg, #c8922a, #f0c040, #c8922a);
   background-size: 200% auto;
   color: #1a0808;
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-title);
   font-size: .88rem;
   font-weight: 700;
   letter-spacing: .18em;
@@ -20,26 +20,11 @@
   border-radius: 1px;
   cursor: pointer;
   box-shadow: 0 4px 18px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,180,.2);
-  transition: background-position .4s, transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s;
+  transition: background-position .4s, transform .25s var(--ease-spring), box-shadow .25s;
 }
 .ticket-btn:hover { background-position: right center; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,.55); }
 .ticket-btn:active { transform: scale(.98); }
 .ticket-hole { width: 12px; height: 12px; background: #9b1010; border-radius: 50%; flex-shrink: 0; }
 .ticket-hole--l { margin-left: -16px; }
 .ticket-hole--r { margin-right: -16px; }
-.ticket-price { font-family: 'Cinzel', serif; font-size: .95rem; font-weight: 700; opacity: .72; letter-spacing: 0; }
-
-/* Final CTA */
-.final-cta {
-  position: relative; z-index: 10;
-  padding: 4rem 0 5rem;
-  text-align: center;
-  border-top: 2px solid rgba(200,146,42,.3);
-}
-.final-pre { font-family: 'Caveat', cursive; font-size: .9rem; color: rgba(26,8,8,.45); font-style: italic; margin-bottom: .65rem; letter-spacing: .05em; }
-.final-title { font-family: 'Cinzel', serif; font-size: clamp(1.5rem,4.5vw,2.5rem); color: #1a0808; margin-bottom: 1.8rem; line-height: 1.28; letter-spacing: .04em; }
-
-/* Section rule — used in Gallery & About */
-.section-rule { display: flex; align-items: center; gap: .85rem; max-width: 260px; margin: 0 auto 1rem; }
-.rule-line { flex: 1; height: 1px; background: rgba(26,8,8,.22); }
-.rule-text { font-size: .78rem; color: rgba(26,8,8,.42); letter-spacing: .1em; white-space: nowrap; }
+.ticket-price { font-family: var(--font-title); font-size: .95rem; font-weight: 700; opacity: .72; letter-spacing: 0; }

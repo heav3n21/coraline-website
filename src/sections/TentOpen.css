@@ -1,0 +1,128 @@
+.tent-open {
+  position: relative;
+  z-index: 10;
+  height: 100vh;
+  min-height: 560px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.tent-scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+}
+
+/* curtain panels — same stripe canvas as the background, so opening them feels like
+   parting the tent itself rather than a generic page transition */
+.curtain {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 25;
+  background: repeating-linear-gradient(90deg, #b81808 0px, #b81808 28px, #f0e2bc 28px, #f0e2bc 56px);
+  box-shadow: 0 0 60px rgba(0,0,0,.5);
+}
+.curtain--l { left: 0; }
+.curtain--r { right: 0; }
+
+.tent-portrait {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+}
+.tent-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 82%;
+  filter: saturate(1.1) contrast(1.05);
+}
+.tent-portrait-fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15,4,0,.25) 0%,
+    rgba(15,4,0,.05) 35%,
+    rgba(15,4,0,.55) 78%,
+    rgba(15,4,0,.92) 100%
+  );
+}
+
+.tent-content {
+  position: relative;
+  z-index: 15;
+  text-align: center;
+  padding: 0 1.5rem 3.2rem;
+}
+
+.tent-kicker {
+  font-family: var(--font-title);
+  font-size: .72rem;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: rgba(240,226,188,.62);
+  margin-bottom: .9rem;
+}
+
+.tent-title {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: clamp(3.2rem, 13vw, 7rem);
+  letter-spacing: .03em;
+  color: #f7ecd2;
+  line-height: 1;
+  text-shadow: 0 8px 40px rgba(0,0,0,.6);
+}
+
+.tent-sub {
+  margin-top: .85rem;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1rem;
+  letter-spacing: .04em;
+  color: rgba(240,226,188,.65);
+}
+
+.tent-scroll-cue {
+  position: absolute;
+  bottom: 1.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  font-family: var(--font-title);
+  font-size: .62rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: rgba(240,226,188,.45);
+}
+.tent-scroll-line {
+  width: 1px;
+  height: 34px;
+  background: linear-gradient(to bottom, rgba(200,146,42,.6), transparent);
+  animation: tentScrollPulse 2.2s ease-in-out infinite;
+}
+@keyframes tentScrollPulse {
+  0%, 100% { opacity: .3; transform: scaleY(.7); }
+  50%      { opacity: 1;  transform: scaleY(1); }
+}
+
+@media (max-width: 480px) {
+  .tent-title { font-size: clamp(2.6rem, 16vw, 4.5rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .curtain { display: none; }
+  .tent-scroll-line { animation: none; }
+}

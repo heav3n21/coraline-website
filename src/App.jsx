@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
+import { MotionConfig } from 'framer-motion'
 import CircusBackground from './components/CircusBackground'
-import StringLights from './components/StringLights'
-import Bunting from './components/Bunting'
-import Hero from './components/Hero'
-import Gallery from './components/Gallery'
-import About from './components/About'
+import TentOpen from './sections/TentOpen'
+import Introduction from './sections/Introduction'
+import Origin from './sections/Origin'
+import LifeWellSniffed from './sections/LifeWellSniffed'
+import Stats from './sections/Stats'
+import Waiting from './sections/Waiting'
+import FinalCTA from './sections/FinalCTA'
 import DonateModal from './components/DonateModal'
 import FloatingDonate from './components/FloatingDonate'
 import MusicPlayer from './components/MusicPlayer'
@@ -17,54 +20,28 @@ export default function App() {
   const close = () => setModal(false)
 
   return (
-    <div className="app">
-      {/* Fixed circus tent background */}
-      <CircusBackground />
+    <MotionConfig reducedMotion="user">
+      <div className="app">
+        <CircusBackground />
 
-      <div className="site-content">
-        {/* String lights + bunting at very top */}
-        <StringLights />
-        <Bunting />
+        <div className="site-content">
+          <main>
+            <TentOpen />
+            <Introduction />
+            <Origin />
+            <LifeWellSniffed />
+            <Stats />
+            <Waiting />
+            <FinalCTA onDonate={open} />
+          </main>
 
-        <main>
-          <Hero onDonate={open} />
-          <Gallery />
-          <About />
-          <FinalCTA onDonate={open} />
-        </main>
+          <Footer />
+        </div>
 
-        <Footer />
+        <DonateModal isOpen={modal} onClose={close} />
+        <FloatingDonate onDonate={open} />
+        <MusicPlayer />
       </div>
-
-      <DonateModal isOpen={modal} onClose={close} />
-      <FloatingDonate onDonate={open} />
-      <MusicPlayer />
-    </div>
-  )
-}
-
-function FinalCTA({ onDonate }) {
-  const ref = React.useRef(null)
-  React.useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) el.classList.add('in') }, { threshold: .2 })
-    obs.observe(el)
-    return () => obs.disconnect()
-  }, [])
-
-  return (
-    <section className="final-cta reveal" ref={ref}>
-      <div className="container" style={{ textAlign: 'center' }}>
-        <p className="final-pre hand">she's still waiting.</p>
-        <h2 className="final-title">One Treat.<br/>One Dollar.<br/>One Very Happy Spin.</h2>
-        <button className="ticket-btn" onClick={onDonate} style={{ margin: '0 auto' }}>
-          <span className="ticket-hole ticket-hole--l" aria-hidden="true"/>
-          <span>Buy the Treat</span>
-          <span className="ticket-price hand">$1</span>
-          <span className="ticket-hole ticket-hole--r" aria-hidden="true"/>
-        </button>
-      </div>
-    </section>
+    </MotionConfig>
   )
 }

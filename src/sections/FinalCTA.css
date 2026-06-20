@@ -1,0 +1,39 @@
+.finale {
+  position: relative;
+  z-index: 10;
+  padding: clamp(6rem, 16vh, 9rem) 1.5rem clamp(5rem, 12vh, 7rem);
+  text-align: center;
+}
+
+.finale-inner {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.finale-kicker {
+  font-family: var(--font-title);
+  font-size: .68rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.4rem;
+}
+
+.finale-title {
+  font-family: var(--font-title);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 4.6vw, 2.8rem);
+  line-height: 1.28;
+  color: var(--paper);
+  margin-bottom: 2.4rem;
+}
+
+.finale-btn { margin: 0 auto; }
+
+.finale-sub {
+  margin-top: 1.1rem;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: .85rem;
+  color: rgba(245,232,200,.4);
+}
