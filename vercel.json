@@ -13,7 +13,13 @@
       ]
     },
     {
-      "source": "/(.*)",
+      "source": "/coraline-hero-animation.html",
+      "headers": [
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
+      ]
+    },
+    {
+      "source": "/((?!coraline-hero-animation\\.html).*)",
       "headers": [
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "X-Frame-Options", "value": "DENY" },

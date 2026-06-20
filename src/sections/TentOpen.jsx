@@ -34,7 +34,14 @@ export default function TentOpen() {
       />
 
       <motion.div className="tent-portrait" style={{ y: portraitY, scale: portraitScale }}>
-        <img src="/coraline-grass.jpeg" alt="Coraline the Golden Retriever" />
+        <iframe
+          className="tent-portrait-frame"
+          src="/coraline-hero-animation.html"
+          title="Coraline animation"
+          aria-hidden="true"
+          tabIndex={-1}
+          scrolling="no"
+        />
         <div className="tent-portrait-fade" aria-hidden="true" />
       </motion.div>
 
